@@ -27,8 +27,8 @@ $ docker build -f Dockerfile https://github.com/pageseeder/docker.git -t ps
 
 ## Run the container
 ~~~~
-$ docker run -p 8080:8080 -v [/path/to/data]/config:/opt/pageseeder/webapp/WEB-INF/config--network=psnet --name=ps -it ps /bin/bash
+$ docker run -p 8080:8080 -v [/path/to/data]/config:/opt/pageseeder/webapp/WEB-INF/config --network=psnet --name=ps -it ps /bin/bash
 ~~~~
 
 Note: PageSeeder Setup
-in the database houst URL, use the name of the database container e.g. `psdb`
+in the database host URL, use the name of the database container e.g. `psdb`
