@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  pageseeder:
+    image: alletterchan/pageseeder
+    container_name: ps
+    networks:
+      - psnet
+    links:
+      - mysql:psdb
+    ports:
+      - '8080:8080'
+      - '8282:8282'
+
+  mysql:
+    image: mysql/mysql-server:5.7
+    container_name: psdb
+    networks:
+      - psnet
+    ports:
+      - '3306:3306'
+    environment:
+      - 'MYSQL_ROOT_PASSWORD=password'
+      - 'MYSQL_DATABASE=pageseeder'
+      - 'MYSQL_USER=pageseeder'
+      - 'MYSQL_PASSWORD=pageseederDB123'
+
+networks:
+  psnet:
+    driver: bridge
