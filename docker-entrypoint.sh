@@ -1,8 +1,6 @@
 #!/bin/bash
-set -e
-echo "start ps"
-#service pageseeder start
-su -s /bin/bash pageseeder -c /opt/pageseeder/tomcat/bin/startup.sh
+set -euo pipefail
 
-#Extra line added in the script to run all command line arguments
-exec "$@"
+echo "Starting PageSeeder ... ($PAGESEEDER_TOMCAT_HOME/bin/startup.sh)"
+exec "$PAGESEEDER_TOMCAT_HOME/bin/catalina.sh" "run" "$@"
+echo "PageSeeder Started."

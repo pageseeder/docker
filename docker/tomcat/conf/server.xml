@@ -121,13 +121,6 @@
                     </JarScanner>
                 </Context>
 
-                <!-- PageSeeder Publisher Context -->
-                <Context path="/ps-publisher" docBase="../../ps-publisher">
-                    <JarScanner>
-                        <JarScanFilter defaultTldScan="false" defaultPluggabilityScan="false" />
-                    </JarScanner>
-                </Context>
-
             </Host>
         </Engine>
     </Service>
