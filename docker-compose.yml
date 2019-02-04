@@ -29,6 +29,7 @@ services:
     volumes:
       - ps-data-vol-config:/opt/pageseeder/webapp/WEB-INF/config
       - ps-data-vol-state:/opt/pageseeder/webapp/WEB-INF/state
+      - ps-data-vol-docs:/opt/pageseeder/documents
     networks:
       - psnet
     restart: always
