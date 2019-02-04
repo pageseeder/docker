@@ -1,9 +1,9 @@
 # to run the container
 #  docker run --name ps -p 8080 -p 8282 --rm -dit fc4f131d88ba  /bin/bash
 # TODO: switch to coreos for smaller footprint
-FROM openjdk:8u181-jdk-alpine
+FROM openjdk:8-jdk-alpine
 
-MAINTAINER "Ringo Chan" <rchan@allette.com.au>
+MAINTAINER "Allette Systems"
 
 #RUN useradd pageseeder
 RUN addgroup -S pageseeder && adduser -S pageseeder -G pageseeder
