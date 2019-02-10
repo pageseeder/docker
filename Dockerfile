@@ -18,8 +18,11 @@ RUN set -x \
     && rm -rf /var/cache/apk/*
 
 # Retrieve PageSeeder and MySQL JDBC driver
-RUN curl -Ls "http://download.pageseeder.com/pub/binary/pageseeder-${PAGESEEDER_VERSION}.tar.gz" | tar -xz --directory /opt --strip-components=1 --no-same-owner
-RUN curl -Ls "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${MYSQL_JDBC_VERSION}.tar.gz" | tar -xz --directory "${PAGESEEDER_HOME}/webapp/WEB-INF/lib" --strip-components=1 --no-same-owner "mysql-connector-java-${MYSQL_JDBC_VERSION}/mysql-connector-java-${MYSQL_JDBC_VERSION}-bin.jar"
+RUN curl -Ls "http://download.pageseeder.com/pub/binary/pageseeder-${PAGESEEDER_VERSION}.tar.gz" \
+    | tar -xz --directory /opt --strip-components=1 --no-same-owner
+RUN curl -Ls "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${MYSQL_JDBC_VERSION}.tar.gz" \
+    | tar -xz --directory "${PAGESEEDER_HOME}/webapp/WEB-INF/lib" --strip-components=1 --no-same-owner \
+      "mysql-connector-java-${MYSQL_JDBC_VERSION}/mysql-connector-java-${MYSQL_JDBC_VERSION}-bin.jar"
 
 # Start Tomcat in foreground
 CMD ["/opt/pageseeder/tomcat/bin/catalina.sh", "run", "-fg"]
