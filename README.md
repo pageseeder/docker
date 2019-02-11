@@ -14,19 +14,19 @@ Start PageSeeder Server
     
 PageSeeder is now available on [http://localhost:8080]
 
-Available Environment Variables:
+## Environment Variables:
 
 * `JVM_MAX_MEMORY` (default: 512m)
 
    The JVM Max Heap Space Memory.
 
 
-#Docker Compose
+# Docker Compose
 If you prefer setup the whole PageSeeder application with Database, you can use this docker-compose.yml
 
     $ docker-compose up
     
-Available Environment Variables:
+### Environment Variables:
 
 * `MYSQL_ROOT_PASSWORD` (default: password)
 
