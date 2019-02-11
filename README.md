@@ -14,6 +14,11 @@ Start PageSeeder Server
     
 PageSeeder is now available on [http://localhost:8080]
 
+Available Environment Variables:
+
+* `JVM_MAX_MEMORY` (default: 512m)
+
+   The JVM Max Heap Space Memory.
 
 
 #Docker Compose
@@ -21,8 +26,7 @@ If you prefer setup the whole PageSeeder application with Database, you can use 
 
     $ docker-compose up
     
-
-If Confluence is run behind a reverse proxy server, then you need to specify extra options to make Confluence aware of the setup. They can be controlled via the below environment variables.
+Available Environment Variables:
 
 * `MYSQL_ROOT_PASSWORD` (default: password)
 
