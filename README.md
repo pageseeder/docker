@@ -1,4 +1,4 @@
-![PageSeeder](https://ps.pageseeder.com/ps/weborganic/layout/default/images/backgrounds/bg-pstitle.png)
+![PageSeeder](https://www.pageseeder.com/thumbnail/images/pagseeder_web.jpg)
 
 PageSeeder is a document collaboration platform, for general information see pageseeder.com . If you are interested in what was added in version 5.96, check out the release notes. One of the main new features is publications which enable the display of a full table of contents, heading/paragraph numbering and versioning for a set of documents. This version also has a new cross-reference user interface, including XRef configuration across a whole project to make it easy for users to create XRefs consistently for different purposes.
 
