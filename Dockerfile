@@ -8,14 +8,19 @@ ENV PAGESEEDER_HOME=/opt/pageseeder \
     PAGESEEDER_VERSION=5.9711 \
     MYSQL_JDBC_VERSION=5.1.45
 
+ENV TZ=Australia/Sydney
+
 EXPOSE 8080 8282
 
 WORKDIR $PAGESEEDER_HOME
 
 # Add library packages
 RUN set -x \
-    && apk add --update bash tar curl \
+    && apk add --update bash tar curl tzdata \
     && rm -rf /var/cache/apk/*
+
+# set timezone
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Retrieve PageSeeder and MySQL JDBC driver
 RUN curl -Ls "http://download.pageseeder.com/pub/binary/pageseeder-${PAGESEEDER_VERSION}.tar.gz" \
