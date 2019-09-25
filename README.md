@@ -16,7 +16,7 @@ PageSeeder is now available on [http://localhost:8080]
 
 Available Environment Variables:
 
-* `JVM_MAX_MEMORY` (default: 512m)
+* `CATALINA_OPTS` 
 
    The JVM Max Heap Space Memory.
 

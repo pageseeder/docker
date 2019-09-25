@@ -29,8 +29,5 @@ RUN curl -Ls "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-ja
     | tar -xz --directory "${PAGESEEDER_HOME}/webapp/WEB-INF/lib" --strip-components=1 --no-same-owner \
       "mysql-connector-java-${MYSQL_JDBC_VERSION}/mysql-connector-java-${MYSQL_JDBC_VERSION}-bin.jar"
 
-# Java Max Heap Memory
-RUN sed -i -e 's/-Xmx\([0-9]\+[kmg]\)/-Xmx\${JVM_MAX_MEMORY:=\1}/g' ${PAGESEEDER_HOME}/tomcat/bin/startup.sh
-
 # Start Tomcat in foreground
 CMD ["/opt/pageseeder/tomcat/bin/catalina.sh", "run", "-fg"]
