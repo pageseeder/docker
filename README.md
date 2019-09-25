@@ -14,12 +14,15 @@ Start PageSeeder Server
     
 PageSeeder is now available on [http://localhost:8080]
 
-Available Environment Variables:
+All default Environment Variable are supported, here are some of the common variables:
 
-* `CATALINA_OPTS` 
+* `CATALINA_OPTS`   
 
-   The JVM Max Heap Space Memory.
-
+    (Optional) Java runtime options used when the "start", "run" or "debug" command is executed. Include here and not in JAVA_OPTS all options, that should only be used by Tomcat itself, not by the stop process, the version command etc. Examples are heap size, GC logging, JMX ports etc.    
+   
+* `JAVA_OPTS`
+       
+    (Optional) Java runtime options used when any command is executed. Include here and not in CATALINA_OPTS all options, that should be used by Tomcat and also by the stop process, the version command etc. Most options should go into CATALINA_OPTS.
 
 #Docker Compose
 If you prefer setup the whole PageSeeder application with Database, you can use this docker-compose.yml
