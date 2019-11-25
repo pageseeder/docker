@@ -27,6 +27,8 @@ RUN curl -Ls "http://download.pageseeder.com/pub/binary/pageseeder-${PAGESEEDER_
 
 COPY docker/tomcat/conf/server.xml /usr/local/tomcat/conf/server.xml
 
+COPY docker/tomcat/webapps/ROOT /usr/local/tomcat/webapps
+
 # Java Max Heap Memory
 #RUN sed -i -e 's/-Xmx\([0-9]\+[kmg]\)/-Xmx\${JVM_MAX_MEMORY:=\1}/g' ${PAGESEEDER_HOME}/tomcat/bin/startup.sh
 
