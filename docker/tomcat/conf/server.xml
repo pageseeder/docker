@@ -115,7 +115,7 @@
                 -->
 
                 <!-- PageSeeder Context -->
-                <Context path="/ps" docBase="../../webapp">
+                <Context path="/ps" docBase="/opt/pageseeder/webapp">
                     <JarScanner>
                         <JarScanFilter defaultTldScan="false" defaultPluggabilityScan="false" />
                     </JarScanner>

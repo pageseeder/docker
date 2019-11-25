@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM tomcat:9
 
 MAINTAINER "Allette Systems"
 
@@ -16,8 +16,7 @@ WORKDIR $PAGESEEDER_HOME
 
 # Add library packages
 RUN set -x \
-    && apk add --update bash tar curl tzdata \
-    && rm -rf /var/cache/apk/*
+    && apt-get install bash tar curl tzdata
 
 # set timezone
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -26,9 +25,14 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN curl -Ls "http://download.pageseeder.com/pub/binary/pageseeder-${PAGESEEDER_VERSION}.tar.gz" \
     | tar -xzp --directory /opt --strip-components=1 --no-same-owner
 
+COPY docker/tomcat/conf/server.xml /usr/local/tomcat/conf/server.xml
+
+# Java Max Heap Memory
+#RUN sed -i -e 's/-Xmx\([0-9]\+[kmg]\)/-Xmx\${JVM_MAX_MEMORY:=\1}/g' ${PAGESEEDER_HOME}/tomcat/bin/startup.sh
+
 RUN curl -Ls "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${MYSQL_JDBC_VERSION}.tar.gz" \
     | tar -xz --directory "${PAGESEEDER_HOME}/webapp/WEB-INF/lib" --strip-components=1 --no-same-owner \
       "mysql-connector-java-${MYSQL_JDBC_VERSION}/mysql-connector-java-${MYSQL_JDBC_VERSION}-bin.jar"
 
 # Start Tomcat in foreground
-CMD ["/opt/pageseeder/tomcat/bin/catalina.sh", "run", "-fg"]
+CMD ["catalina.sh", "run"]
