@@ -25,9 +25,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN curl -Ls "http://download.pageseeder.com/pub/binary/pageseeder-${PAGESEEDER_VERSION}.tar.gz" \
     | tar -xzp --directory /opt --strip-components=1 --no-same-owner
 
-COPY docker/tomcat/conf/server.xml /usr/local/tomcat/conf/server.xml
-
-COPY docker/tomcat/webapps/ROOT /usr/local/tomcat/webapps
+ADD docker/tomcat/base /usr/local/tomcat/base
+ADD docker/pageseeder/webapp/WEB-INF/config-default ${PAGESEEDER_HOME}/webapp/WEB-INF/config-default
 
 # Java Max Heap Memory
 #RUN sed -i -e 's/-Xmx\([0-9]\+[kmg]\)/-Xmx\${JVM_MAX_MEMORY:=\1}/g' ${PAGESEEDER_HOME}/tomcat/bin/startup.sh
