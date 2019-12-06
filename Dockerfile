@@ -36,4 +36,4 @@ RUN curl -Ls "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-ja
       "mysql-connector-java-${MYSQL_JDBC_VERSION}/mysql-connector-java-${MYSQL_JDBC_VERSION}-bin.jar"
 
 # Start Tomcat in foreground
-CMD ["catalina.sh", "run"]
+CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
