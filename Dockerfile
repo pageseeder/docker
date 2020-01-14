@@ -5,7 +5,7 @@ MAINTAINER "Allette Systems"
 # Environment variables for PageSeeder
 # TODO: Update PageSeeder Download URL
 ENV PAGESEEDER_HOME=/opt/pageseeder \
-    PAGESEEDER_VERSION=5.9800-beta5-6 \
+    PAGESEEDER_VERSION=5.9800-SNAPSHOT \
     MYSQL_JDBC_VERSION=5.1.45
 
 ENV TZ=Australia/Sydney
@@ -22,7 +22,7 @@ RUN set -x \
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Retrieve PageSeeder and MySQL JDBC driver
-RUN curl -Ls "http://download.pageseeder.com/pub/binary/pageseeder-${PAGESEEDER_VERSION}.tar.gz" \
+RUN curl -Ls "http://repo.pageseeder.com/pub/binary/pageseeder-${PAGESEEDER_VERSION}.tar.gz" \
     | tar -xzp --directory /opt --strip-components=1 --no-same-owner
 
 ADD docker/tomcat/base /usr/local/tomcat/base
