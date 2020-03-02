@@ -1,3 +1,4 @@
+# Note: this repository has been archived and replaced by https://gitlab.allette.com.au/pageseeder/docker
 ![PageSeeder](https://www.pageseeder.com/thumbnail/images/pagseeder_web.jpg)
 
 PageSeeder is a document collaboration platform, for general information see pageseeder.com . If you are interested in what was added in version 5.96, check out the release notes. One of the main new features is publications which enable the display of a full table of contents, heading/paragraph numbering and versioning for a set of documents. This version also has a new cross-reference user interface, including XRef configuration across a whole project to make it easy for users to create XRefs consistently for different purposes.
